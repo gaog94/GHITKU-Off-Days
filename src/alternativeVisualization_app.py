@@ -22,7 +22,7 @@ def generate_url(startdate, enddate, passkey):
     
     '''Download amion datatable of interest'''
     # Use the 625c extension to figure out wtf people are doing
-    urlstem = "http://www.amion.com/cgi-bin/ocs?Lo={}&Rpt=625ctabs".format(passkey)
+    urlstem = "https://www.amion.com/cgi-bin/ocs?Lo={}&Rpt=625ctabs".format(passkey)
     
     # parse date information
     y, m, d = startdate.strftime('%y'), startdate.month, startdate.day
@@ -35,7 +35,6 @@ def generate_url(startdate, enddate, passkey):
 def download_df(startdate, enddate, passkey):
     
     url = generate_url(startdate, enddate, passkey)     
-    # url="http://www.amion.com/cgi-bin/ocs?Lo=uwmed%20medres&Rpt=625c&Month=7-24&Days=365"
 
     path, headers = urlretrieve(url)
 
